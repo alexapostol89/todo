@@ -6,8 +6,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddCors();
+
 
 var appOptions = builder.Services.AddAppOptions(builder.Configuration);
+
+
 
 
 
@@ -26,6 +30,14 @@ builder.Services.AddDbContext<MyDbContext>(conf =>
 
 
 var app = builder.Build();
+
+app.UseCors(config => config.
+    AllowAnyHeader().
+    AllowAnyMethod().
+    AllowAnyOrigin().
+    SetIsOriginAllowed(x => true));
+
+
 
 app.MapGet("/", (
     
@@ -55,9 +67,6 @@ app.MapGet("/", (
  
     
     dbContext.Authors.Add(myAuthors);
-
-    //Author auth = dbContext.Authors.ToList().FirstOrDefault();
-    //dbContext.Authors.Remove(auth);
     
     dbContext.SaveChanges();
 
