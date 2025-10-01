@@ -1,5 +1,6 @@
 using System.Text.Json;
 using api;
+using api.Etc;
 using api.Services;
 using efscaffold;
 using Microsoft.AspNetCore.Mvc;
@@ -48,6 +49,8 @@ app.MapControllers();
 
 app.UseOpenApi();
 app.UseSwaggerUi();
+
+app.GenerateApiClientsFromOpenApi(path: "/../../client/src/generated-ts-client.ts");
 
 
 
