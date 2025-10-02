@@ -26,5 +26,13 @@ public class MainController(IAuthorService authorService) : ControllerBase
         return result;
     }
     
-
+/*[HttpDelete("DeleteAllAuthors")]
+    public async Task<IActionResult> DeleteAllAuthors()
+    {
+        await authorService.DeleteAllAuthors();
+        return NoContent();
+    }*/
+    
+    
+    
 }

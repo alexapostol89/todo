@@ -8,4 +8,6 @@ public interface IAuthorService
 {
     Task<Author> CreateAuthor(CreateAuthorDto dto);
     Task<List<Author>> GetAllAuthors();
+    //Task DeleteAllAuthors();
+
 }

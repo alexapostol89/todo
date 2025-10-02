@@ -29,4 +29,10 @@ public class AuthorService : IAuthorService
     {
         return await dbContext.Authors.ToListAsync();
     }
+/*public async Task DeleteAllAuthors()
+    {
+        dbContext.Authors.RemoveRange(dbContext.Authors);
+        await dbContext.SaveChangesAsync();
+    }*/
+    
 }
